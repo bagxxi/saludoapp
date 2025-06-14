@@ -7,22 +7,22 @@ pipeline {
         stages {
             stage('Clonar') {
             steps {
-                git 'https://github.com/bagxxi/saludoapp.git'
+                checkout scm
                 }
             }
             stage('Compilar') {
                 steps {
-                    sh 'mvn clean compile'
+                    bat 'mvn clean compile'
                 }
             }
             stage('Probar') {
                 steps {
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
             stage('Empaquetar') {
                 steps {
-                    sh 'mvn package'
+                    bat 'mvn package'
                 }
             }
         }
